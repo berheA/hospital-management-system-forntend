@@ -1,6 +1,6 @@
 
 # PROJECT NAME
-# hospital-management-system-backend
+# hospital-management-system-frontend
 ## Project Description
 
 descr-----

@@ -6,8 +6,8 @@
 descr-----
 
 
-## Front End
-[Front End](https://github.com/berheA/hospital-management-system-backend)
+## Back-End
+[Back End](https://github.com/berheA/hospital-management-system-backend)
 
 ## Technologies Used
 

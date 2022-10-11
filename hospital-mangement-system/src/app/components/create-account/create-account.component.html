@@ -1,0 +1,45 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3> Create New Account</h3>
+    <form (ngSubmit)="onCreateAccount()">
+    <div class="form-group">
+    <label> firstName </label>
+    <input type="text" class="form-control"
+    [(ngModel)]="account.firstName" 
+        id="firstName" name="firstName" 
+        placeholder="provide firstName">    
+    </div>
+    <div class="form-group">
+        <label> lastName </label>
+        <input type="text" class="form-control" id="lastName" 
+        [(ngModel)]="account.lastName" 
+               name="lastName" placeholder="provide lastName">
+        </div>
+        <div class="form-group">
+            <label> email </label>
+            <input type="text" class="form-control" id="email" 
+            [(ngModel)]="account.email" 
+                   name="email" placeholder="provide email">
+            </div>
+            
+                <div class="form-group">
+                    <label> password </label>
+                    <input type="password" class="form-control" id="password" 
+                    [(ngModel)]="account.password"        
+                    name="password" placeholder="provide password">
+                    </div>
+                    <div class="form-group" id="roleCheck"  *ngIf="displayRoleForAdmin()">
+                        <label for="validationCustom04" class="form-label">Role</label>
+                        <select class="form-select" name="userRole" [(ngModel)]="account.userRole" id="validationCustom04" required>
+                          <option  value="Customer">Customer</option>
+                          <option  value="Admin">Admin</option>
+                          <option value="Doctor">Doctor</option>
+                          <option value="Receptionist">Receptionist</option>
+                          <option  value="Pharmacist">Pharmacist</option>
+                        </select>
+                    </div>
+
+        <button type="submit" class="btn btn-success"> Create</button>
+    </form>
+    </div>
+

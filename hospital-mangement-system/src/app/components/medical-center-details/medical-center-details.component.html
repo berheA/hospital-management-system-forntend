@@ -1,0 +1,43 @@
+<p>medical-center-details works!</p>
+<button>  
+    <a class="nav-link active" aria-current="page" 
+    routerLink="/create-medicalCenter">Add MedicalCenter</a>
+</button>
+
+<table class="table table-striped">
+<thead>
+<th> MedicalCenter Name </th>
+<th> Phone </th>
+<th> Email </th>
+<th> City</th>
+<th> State </th>
+<th> Street Address </th>
+<th> Zip Code </th>
+<th> Services </th>
+<th>  Actions</th>
+</thead>
+<tbody>
+ <tr *ngFor="let medicalCenter of medicalCenters">
+<td> {{medicalCenter.medicalCenterName}} </td>
+<td> {{medicalCenter.phone}} </td>
+<td> {{medicalCenter.email}} </td>
+<td> {{medicalCenter.medicalCenterCity}} </td>
+<td> {{medicalCenter.medicalCenterState}} </td>
+<td> {{medicalCenter.medicalCenterStreetAddress}} </td>
+<td> {{medicalCenter.medicalCenterZip}} </td>
+<td> {{medicalCenter.specialService.length}} </td>
+
+ <td *ngFor="let specialService of specialServices">
+    <br>
+    <div>
+    {{specialService.serviceName}}
+</div>
+  </td>
+<td> <button (click)="updateMedicalCenter(medicalCenter.medicalCenterId)" class="btn btn-info">Update </button></td>
+<td> <button (click)="deleteMedicalCenter(medicalCenter.medicalCenterId)" class="btn btn-danger" style="margin-left: 10px"> Delete </button></td>
+<td> <button (click)="medicalCenterDetails(medicalCenter.medicalCenterId)" class="btn btn-info"   style="margin-left: 10px"> View</button></td>
+ 
+</tr>
+</tbody>
+
+</table>

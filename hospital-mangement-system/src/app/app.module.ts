@@ -26,6 +26,9 @@ import { UpdateAppointmentComponent } from './components/update-appointment/upda
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
 import { CreatePatientComponent } from './components/create-patient/create-patient.component';
 import { UpdatePatientComponent } from './components/update-patient/update-patient.component';
+import { AssignPatientComponent } from './components/assign-patient/assign-patient.component';
+import { TreatmentDetailsComponent } from './components/treatment-details/treatment-details.component';
+import { UpdateTreatmentComponent } from './components/update-treatment/update-treatment.component';
  
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { UpdatePatientComponent } from './components/update-patient/update-patie
     UpdateAppointmentComponent,
     PatientDetailsComponent,
     CreatePatientComponent,
-    UpdatePatientComponent
+    UpdatePatientComponent,
+    AssignPatientComponent,
+    TreatmentDetailsComponent,
+    UpdateTreatmentComponent
   ],
   imports: [
     BrowserModule,

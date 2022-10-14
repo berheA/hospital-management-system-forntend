@@ -11,7 +11,6 @@ import { MedicalCenterService } from 'src/app/_services/medical-center-service.s
 export class MedicalCenterDetailsComponent implements OnInit {
 
   medicalCenters:MedicalCenter[];
-  specialServices:any;
   constructor(private medicalCenterService:MedicalCenterService, 
     private router:Router
     ) { 
@@ -20,7 +19,6 @@ export class MedicalCenterDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.students=this.studentService.getAllStudents().subscribe ();
   this.getAllMedicalCenters();
   }
 private getAllMedicalCenters(){
@@ -28,8 +26,6 @@ this.medicalCenterService.getAllMedicalCenters().subscribe(
   data=>{
     console.log(data);
     this.medicalCenters=data;
-    
-    this.specialServices=data[0].specialService;
   }
 );
 }

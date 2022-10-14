@@ -35,6 +35,7 @@ this.appointmentService.getAllAppointments().subscribe(
     // medical center
    // this.specialServices=data[0].specialService;
    this.names=data[0].appointmentId;
+   this.specialServices=data[0].medicalCenter;
   }
 );
 }

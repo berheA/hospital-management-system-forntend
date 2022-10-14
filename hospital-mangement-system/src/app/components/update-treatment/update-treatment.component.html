@@ -1,0 +1,23 @@
+<p>update-treatment works!</p>
+<div class="col-md-6 offset-md-3">
+    <h3> Update treatment</h3>
+    <form (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+        <label> treatmentDate </label>
+        <input type="text" class="form-control" id="treatmentDate" 
+               [(ngModel)]="treatment.treatmentDate" name="treatmentDate" placeholder="treatmentDate">
+        
+        <label> Bill </label>
+        <input type="text" class="form-control" id="bill" 
+                [(ngModel)]="treatment.bill" name="bill" placeholder="bill">
+        
+                <label> Result</label>
+                <input type="text" class="form-control" id="bill" 
+                        [(ngModel)]="treatment.result" name="result" placeholder="result">
+        
+            </div>
+
+        <button type="submit" class="btn btn-success"> Update</button>
+    </form>
+    </div>

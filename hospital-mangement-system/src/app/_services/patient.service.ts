@@ -8,11 +8,11 @@ import { Patient } from '../models/patient';
 })
 export class PatientService {
 
-  private url="http://localhost:8080/hms/allPatients";
-private url2="http://localhost:8080/hms/addPatient";
-private url3="http://localhost:8080/hms/patient";
-private url4="http://localhost:8080/hms/updatePatient";
-private url5="http://localhost:8080/hms/deletePatient";
+  private url="http://localhost:8081/hms/allPatients";
+private url2="http://localhost:8081/hms/addPatient";
+private url3="http://localhost:8081/hms/patient";
+private url4="http://localhost:8081/hms/updatePatient";
+private url5="http://localhost:8081/hms/deletePatient";
 
   constructor(private http:HttpClient) { }
 getAllPatients():Observable<Patient[]>{

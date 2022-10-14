@@ -10,8 +10,7 @@ import { MedicalCenterService } from 'src/app/_services/medical-center-service.s
 })
 export class CreateMedicalCenterComponent implements OnInit {
 
-  medicalCenter:MedicalCenter=new MedicalCenter(0, "",0,"","","","",0,[]);
-  specialServices:any;
+  medicalCenter:MedicalCenter=new MedicalCenter(0, "",0,"","","","",0,"");
   constructor(private medicalCenterService:MedicalCenterService, private router:Router) { }
 
   ngOnInit(): void {

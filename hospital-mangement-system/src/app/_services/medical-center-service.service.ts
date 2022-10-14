@@ -7,11 +7,11 @@ import { MedicalCenter } from '../models/medicalCenter';
   providedIn: 'root'
 })
 export class MedicalCenterService {
-private url="http://localhost:8080/hms/allMedicalCenters";
-private url2="http://localhost:8080/hms/addMedicalCenter";
-private url3="http://localhost:8080/hms/medicalCenter";
-private url4="http://localhost:8080/hms/updateMedicalCenter";
-private url5="http://localhost:8080/hms/deleteMedicalCenter";
+private url="http://localhost:8081/hms/allMedicalCenters";
+private url2="http://localhost:8081/hms/addMedicalCenter";
+private url3="http://localhost:8081/hms/medicalCenter";
+private url4="http://localhost:8081/hms/updateMedicalCenter";
+private url5="http://localhost:8081/hms/deleteMedicalCenter";
 
   constructor(private http:HttpClient) { }
 getAllMedicalCenters():Observable<MedicalCenter[]>{

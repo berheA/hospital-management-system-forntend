@@ -44,6 +44,10 @@ updatePatient(id:number){
 this.router.navigate(['update-patient', id]);
 }
 
+assignPatient(id:number){
+  this.router.navigate(['assign-patient', id]);
+}
+
 patientDetails(id:number){
   this.router.navigate(['patient-details', id]);
   }

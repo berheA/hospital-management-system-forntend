@@ -1,0 +1,26 @@
+<p>assign-patient works!</p>
+
+<div class="col-md-6 offset-md-3">
+    <h3> Assign Patient to A Doctor</h3>
+    <form (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+
+        <label> Patient Id </label>
+        <input type="text" class="form-control" id="appointmentDate" 
+               [(ngModel)]="patient.userId" name="patientUserId" placeholder="patientUserId">
+               <label> Email </label>
+        <input type="text" class="form-control" id="email" 
+                      [(ngModel)]="patient.email" ngValue="patient.email" name="email" placeholder="email">            
+        <label> Assigned Date </label>
+        <input type="text" class="form-control" id="assignedDate" 
+                 [(ngModel)]="treatment.assignedDate" name="assignedDate" placeholder="assignedDate">
+        <label>Service Center/Doctor Name</label>
+            <select id ="doctor" name="doctor" [(ngModel)]="treatment.doctorId"   class="form-select" aria-label="Default select example">      
+                <option  *ngFor="let doctor of users"    ngValue="{{doctor.id}}">{{doctor.userRole}}</option> 
+        </select>
+            </div>
+
+        <button type="submit" class="btn btn-success"> Assign</button>
+    </form>
+    </div>

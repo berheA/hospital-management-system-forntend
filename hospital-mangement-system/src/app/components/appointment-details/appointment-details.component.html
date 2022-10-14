@@ -11,16 +11,19 @@
   <th> LastName</th>
 <th> Date </th>
 <th> Status </th>
+<th> Service Center</th>
 <th>  Actions</th>
 </thead>
 <tbody>
- <tr *ngFor="let appointment of appointments">
+ <tr *ngFor="let appointment of appointments" >
+  <!-- <td > {{names.patientFirstName + " " + names.patientLastName}}</td> -->
   <td>{{currentRole}}</td>
   <td>{{currentFirstName}}</td>
   <td>{{currentLastName}}</td>
 <td> {{appointment.appointmentDate}} </td>
 <td> {{appointment.appointmentStatus}} </td>
 <td> apptid: {{appointment.appointmentId}} </td>
+<td>centerName: {{appointment.medicalCenter}} </td>
 
  <!-- <td *ngFor="let center of centers">
     <br>

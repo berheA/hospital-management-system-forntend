@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Appointment } from 'src/app/models/appointment';
+import { MedicalCenter } from 'src/app/models/medicalCenter';
 import { Patient } from 'src/app/models/patient';
+import { MedicalCenterService } from 'src/app/_services/medical-center-service.service';
 import { PatientService } from 'src/app/_services/patient.service';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
 
@@ -16,13 +18,24 @@ export class CreatePatientComponent implements OnInit {
   currentLastName:any;
   currentEmail:any;
   currentUserId:any;
-  
   patient:Patient;
-  appointment=new Appointment(0,"12","",[]);
+  medicalCenter:any;
+  appointment:any;
 
-  //specialServices:any;
+  medicalCenters:any=new MedicalCenter(0,"",0,"","", "", "", 0,"");
+ 
+  private getAllMedicalCenters(){
+    this.medicalCenterService.getAllMedicalCenters().subscribe(
+      data=>{
+        console.log(data);
+        this.medicalCenters=data;
+      }
+    );
+    }
+
   constructor(private patientService:PatientService,
     private userAuthService:UserAuthService,
+    private medicalCenterService:MedicalCenterService,
     private router:Router) { 
      
       this.currentFirstName=this.userAuthService.getFirstName();
@@ -30,10 +43,9 @@ export class CreatePatientComponent implements OnInit {
       this.currentEmail=this.userAuthService.getEmail();
       this.currentUserId=this.userAuthService.getUserId();
 
+this.getAllMedicalCenters();
 
-    //  this.appointment =new Appointment(0,"","",[]);
-    //this.appointment=[this.b.push(this.appt)];
-    //this.appointment[0].appointmentDate="23";
+this.appointment=new Appointment(0,"","","");
       this.patient=new Patient(0, 
                      this.currentUserId, 0,
                       this.currentFirstName,
@@ -43,13 +55,6 @@ export class CreatePatientComponent implements OnInit {
                         );
 
                         this.appointment=this.patient.appointment;
-      // this.patient=new Patient(
-      //             this.currentUserId,
-      //             0,
-      //             this.currentFirstName,
-      //             this.currentLastName, 
-      //             this.currentEmail,
-      //              '', '')
 
   }
 
@@ -67,9 +72,12 @@ export class CreatePatientComponent implements OnInit {
 
   goToPatientList(){
 this.router.navigate(['/patients']);
+
+
   }
  onSubmit(){
 
+  
   console.log( this.patient);
   this.savePatient();
   //this.getAllMedicalCenters()

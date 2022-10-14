@@ -1,0 +1,36 @@
+<p>treatment-details works!</p>
+<p>medical-center-details works!</p>
+<button>  
+    <a class="nav-link active" aria-current="page" 
+    routerLink="/create-treatment">Add treatment</a>
+</button>
+
+<table class="table table-striped">
+<thead>
+<th> Patient Id</th>
+<th> Patient's email address</th>
+<th>Bill </th>
+<th> Assigned Date </th>
+<th> Treatment Date </th>
+<th> Result</th>
+<th>  Actions</th>
+</thead>
+<tbody>
+ <tr *ngFor="let treatment of treatments">
+<td> {{treatment.patientId}} </td>
+<td> {{treatment.email}} </td>
+<td> {{treatment.bill}} </td>
+<td> {{treatment.assignedDate}} </td>
+<td> {{treatment.treatmentDate}} </td>
+<td> {{treatment.result}} </td>
+<td *ngIf="!treatment.treatmentDate"> 
+    <button (click)="updateTreatment(treatment.treatmentId)" class="btn btn-info">Treat</button></td>
+<td  *ngIf="treatment.treatmentDate" > 
+    
+    <button (click)="updateTreatment(treatment.treatmentId)" class="btn btn-danger" style="margin-left: 10px"> Update </button></td>
+<td> <button (click)="treatmentDetails(treatment.treatmentId)" class="btn btn-info"   style="margin-left: 10px"> View</button></td>
+ 
+</tr>
+</tbody>
+
+</table>

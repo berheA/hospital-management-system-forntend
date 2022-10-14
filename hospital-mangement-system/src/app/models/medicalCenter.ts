@@ -4,7 +4,7 @@ export class MedicalCenter {
      
     constructor( 
          public medicalCenterId: number,
-         public medicalCenterName:string,
+         public medicalCenterName:any,
          public phone: number,
          public  email: string,
          public medicalCenterCity: string,

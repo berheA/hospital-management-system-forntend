@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Appointment } from 'src/app/models/appointment';
@@ -6,6 +7,7 @@ import { Patient } from 'src/app/models/patient';
 import { MedicalCenterService } from 'src/app/_services/medical-center-service.service';
 import { PatientService } from 'src/app/_services/patient.service';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
+import { Inject, LOCALE_ID } from '@angular/core';
 
 @Component({
   selector: 'app-create-patient',
@@ -13,6 +15,10 @@ import { UserAuthService } from 'src/app/_services/user-auth.service';
   styleUrls: ['./create-patient.component.css']
 })
 export class CreatePatientComponent implements OnInit {
+
+  
+ c=new Date();
+
 
   currentFirstName:any;
   currentLastName:any;
@@ -33,10 +39,15 @@ export class CreatePatientComponent implements OnInit {
     );
     }
 
-  constructor(private patientService:PatientService,
+  constructor(
+    private patientService:PatientService,
     private userAuthService:UserAuthService,
     private medicalCenterService:MedicalCenterService,
-    private router:Router) { 
+    private router:Router,
+    ) 
+    
+    
+    { 
      
       this.currentFirstName=this.userAuthService.getFirstName();
       this.currentLastName=this.userAuthService.getLastName();

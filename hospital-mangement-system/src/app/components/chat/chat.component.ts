@@ -12,8 +12,8 @@ import { UserAuthService } from 'src/app/_services/user-auth.service';
 })
 export class ChatComponent{
   
-  title = 'grokonez';
-  description = 'Angular-WebSocket Demo';
+  title = 'Bidirectional Chat';
+  description = 'Be aware!!!!! The Chat is Public!';
 
   greetings: string[] = [];
   disabled = true;

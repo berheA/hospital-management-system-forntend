@@ -24,11 +24,11 @@ export class CreateAccountComponent implements OnInit {
 saveAccount(){
   this.accountService.createAccount(this.account).subscribe(data=>{
     console.log(data);
-   // this.goToLogin();
+   this.goToLogin();
   }
   , (error)=>{
     if(error.status==200 || error.status==201){
-      alert("Created");
+      alert("A verification code has been sent to your email. Plse verify and login");
       this.goToLogin();
     }
     else{
@@ -52,12 +52,7 @@ this.saveAccount();
 
 }
 
-
-
-  //
-
-
-
+// It allows Admin to choose Roles from the drop down
   public displayRoleForAdmin(){
     return this.userService.roleMatch(['Admin']);
   }

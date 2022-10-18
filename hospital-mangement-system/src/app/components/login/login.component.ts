@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 //  user:User=new User();
 // username:string='';
 // password:string='';
-// message:any;
+message:any;
 
   constructor(
     private userService:UserService,
@@ -65,11 +65,18 @@ login(loginForm:NgForm){
       if(role==='Admin'){
           this.router.navigate(['/admin']);
       }
+      else if(role==='Doctor'){
+        this.router.navigate(['/doctor']);
+    }
+    else   if(role==='Receptionist'){
+      this.router.navigate(['/recepionist']);
+  }
       else{
         this.router.navigate(['/user']);
       }
     },
     (error)=>{console.log(error);
+      this.message="Incorrect Authentication! Please Try again";
      }
   );
 }

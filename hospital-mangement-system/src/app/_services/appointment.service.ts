@@ -8,11 +8,11 @@ import { Appointment } from '../models/appointment';
   providedIn: 'root'
 })
 export class AppointmentService {
-private url="http://localhost:8080/hms/allAppointments";
-private url2="http://localhost:8080/hms/addAppointment";
-private url3="http://localhost:8080/hms/appointment";
-private url4="http://localhost:8080/hms/updateAppointment";
-private url5="http://localhost:8080/hms/deleteAppointment";
+private url="http://localhost:8081/hms/allAppointments";
+private url2="http://localhost:8081/hms/addAppointment";
+private url3="http://localhost:8081/hms/appointment";
+private url4="http://localhost:8081/hms/updateAppointment";
+private url5="http://localhost:8081/hms/deleteAppointment";
 
   constructor(private http:HttpClient) { }
 getAllAppointments():Observable<Appointment[]>{

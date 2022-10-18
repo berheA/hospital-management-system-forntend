@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Patient } from 'src/app/models/patient';
 import { PatientService } from 'src/app/_services/patient.service';
 import { UserAuthService } from 'src/app/_services/user-auth.service';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-patient-details',
@@ -15,6 +16,7 @@ export class PatientDetailsComponent implements OnInit {
   appointments:any;
   constructor(private patientService:PatientService, 
     private userAuthService:UserAuthService,
+    public userService:UserService,
     private router:Router
     ) { 
     // initalize attribute

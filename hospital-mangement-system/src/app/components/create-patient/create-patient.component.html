@@ -1,44 +1,144 @@
 <div class="col-md-6 offset-md-3">
-    <h3>Create patient</h3>
+    <h3>Make Appointment</h3>
     <form (ngSubmit)="onSubmit()" name="myform">
     
     <div class="form-group">
 
-        <label> patientId </label>
-        <input type="number" class="form-control" id="patientId" 
+       
+        <input type="hidden" class="form-control" id="patientId" 
                [(ngModel)]="patient.userId" name="patientId" placeholder="patientId">
         
               
                <label> FirstName</label>
                <input type="text" class="form-control" id="patientFirstName" 
-                       [(ngModel)]="patient.patientFirstName" name="patientFirstName" placeholder="patientFirstName">
-                      
+                       [(ngModel)]="patient.patientFirstName" name="patientFirstName" 
+                       placeholder="patientFirstName"
+                       required
+                       #firstName="ngModel"
+                        minlength="2"
+                        pattern="^[a-zA-Z]+"
+                       >
+                       <span *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                       class="alert">
+                   
+                     <span *ngIf="firstName.errors?.['required']">
+                       FirstName is required.
+                     </span>
+                     <span *ngIf="firstName.errors?.['minlength']">
+                       FirstName must be at least 2 characters long.
+                     </span>
+                   <span *ngIf="firstName.errors?.['pattern']">
+                     FirstName must be only characters.
+                   </span>
+                       </span>  
                       
                        <label> LastName</label>
                        <input type="text" class="form-control" id="patientLastName" 
-                               [(ngModel)]="patient.patientLastName" name="patientLastName" placeholder="patientLastName">
+                               [(ngModel)]="patient.patientLastName" name="patientLastName"
+                                placeholder="patientLastName"
+                                #lastName="ngModel"
+               required
+               minlength="2"
+               pattern="^[a-zA-Z]+"
+               >
+               <span *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+               class="alert">
+           
+             <span *ngIf="lastName.errors?.['required']">
+               lastName is required.
+             </span>
+             <span *ngIf="lastName.errors?.['minlength']">
+               lastName must be at least 2 characters long.
+             </span>
+           <span *ngIf="lastName.errors?.['pattern']">
+             lastName must be only characters.
+           </span>
+               </span>  
                       
                       
-                              
+                               <label> Age</label>
                                <input type="number" class="form-control" id="age" 
-                                       [(ngModel)]="patient.age" name="age" placeholder="age">
+                                       [(ngModel)]="patient.age" name="age" 
+                                       placeholder="age"
+                                       #age="ngModel"
+                                       required
+        
+                                       pattern="^[0-9]+"
+                                       >
+                                       <span *ngIf="age.invalid && (age.dirty || age.touched)"
+                                       class="alert">
+                                   
+                                     <span *ngIf="age.errors?.['required']">
+                                       age is required.
+                                     </span>
+                                    
+                                   <span *ngIf="age.errors?.['pattern']">
+                                     age must not be a negative number.
+                                   </span>
+                                       </span>  
                                     
          <label> Email </label>
         <input type="text" class="form-control" id="email" 
-                [(ngModel)]="patient.email" name="email" placeholder="email">
+                [(ngModel)]="patient.email" name="email" 
+                placeholder="email"
+                #email="ngModel"
+                   required
+                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   >
+                   <span *ngIf="email.invalid && (email.dirty || email.touched)"
+                   class="alert">
+               
+                 <span *ngIf="email.errors?.['required']">
+                   email is required.
+                 </span>
+                
+               <span *ngIf="email.errors?.['pattern']">
+                 email must be valid.
+               </span>
+                   </span>  
 
                 <label>Date </label>
-                <input type="text" class="form-control" id="appointmentDate" 
-                        [(ngModel)]="patient.appointment[0].appointmentDate" name="appointmentDate" placeholder="appointmentDate">
-                           
+                <input type="date" class="form-control" id="appointmentDate" 
+                        [(ngModel)]="patient.appointment[0].appointmentDate" name="appointmentDate"
+                         placeholder="appointmentDate"
+                         #date="ngModel"
+                   required
+                 min="2022-10-18"
+                   >
+                   <span *ngIf="date.invalid && (date.dirty || date.touched)"
+                   class="alert">
+               
+                 <span *ngIf="date.errors?.['required']">
+                   appointmentDate is required.
+                 </span>
+                
+               <span *ngIf="date.errors?.['min']">
+                 appointmentDate must not be before current time.
+               </span>
+                   </span>  
+                       {{c | date:'shortDate'}}    
                <label>Service Center </label>
-               <select id ="medicalCenter" name="medicalCenter" [(ngModel)]="patient.appointment[0].medicalCenter"   class="form-select" aria-label="Default select example">      
-                <option  *ngFor="let medicalCenter of medicalCenters"    ngValue="{{medicalCenter.medicalCenterName}}">{{medicalCenter.medicalCenterName}}</option> 
-        </select>
+               <select id ="medicalCenter"  #medicalCenter="ngModel" required
+                name="medicalCenter" [(ngModel)]="patient.appointment[0].medicalCenter" 
+                class="form-select" aria-label="">      
+                <option  *ngFor="let medicalCenter of medicalCenters"   
+                 ngValue="{{medicalCenter.medicalCenterName}}">
+                 {{medicalCenter.medicalCenterName}}</option> 
+              </select>
+              <span *ngIf="medicalCenter.invalid && (medicalCenter.dirty || medicalCenter.touched)"
+                   class="alert">
+               
+                 <span *ngIf="medicalCenter.errors?.['required']">
+                   medicalCenterName is required where your appt takes place.
+                 </span>
+              </span>
         
             </div>
 
-        <button type="submit" class="btn btn-success"> Add</button>
-    </form>
+        <button type="submit" class="btn btn-success" *ngIf="firstName.errors || lastName.errors || email.errors || medicalCenter.errors" disabled> Add</button>
+        <button type="submit" class="btn btn-success" *ngIf="!firstName.errors && !lastName.errors && !email.errors && !medicalCenter.errors"> Add</button>
+     
+
+</form>
     </div>
 

@@ -8,12 +8,14 @@ import { CreateAccountComponent } from './components/create-account/create-accou
 import { CreateAppointmentComponent } from './components/create-appointment/create-appointment.component';
 import { CreateMedicalCenterComponent } from './components/create-medical-center/create-medical-center.component';
 import { CreatePatientComponent } from './components/create-patient/create-patient.component';
+import { DoctorComponent } from './components/doctor/doctor.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 //import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MedicalCenterDetailsComponent } from './components/medical-center-details/medical-center-details.component';
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
+import { ReceptionistComponent } from './components/receptionist/receptionist.component';
 import { TreatmentDetailsComponent } from './components/treatment-details/treatment-details.component';
 import { UpdateAppointmentComponent } from './components/update-appointment/update-appointment.component';
 import { UpdateMedicalCenterComponent } from './components/update-medical-center/update-medical-center.component';
@@ -48,6 +50,8 @@ const routes: Routes = [
    {path:'assign-patient/:id', component:AssignPatientComponent},
    {path:'treatments', component:TreatmentDetailsComponent},
    {path:'update-treatment/:id', component:UpdateTreatmentComponent},
+   {path:'doctor', component:DoctorComponent},
+   {path:'receptionist', component:ReceptionistComponent},
    {path:'chat', component:ChatComponent}
 ];
 

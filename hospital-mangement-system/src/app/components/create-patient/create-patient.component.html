@@ -1,144 +1,237 @@
-<div class="col-md-6 offset-md-3">
-    <h3>Make Appointment</h3>
-    <form (ngSubmit)="onSubmit()" name="myform">
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <title>Berhe's Home Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href='https://fonts.googleapis.com/css?family=Sumana' rel='stylesheet'>
+  
+  <style>
+  body, p,table {
+      font-family: 'Sumana';font-size: 18px;
+  }
+  
+  img {
+      width: 100%;
+  }
+  
+  </style>
+      <!-- CSS only -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  
+  </head>
+  <body>
+  
+  
+  
+  <div class="row">
+    <div class="side">
+      
+      
+      <h2>About Me</h2>
+          <h2> Berhe Amare</h2>
+          <h3> Full Stack Java Developer</h3>
+          <p>
+              I am a passionate, purpose driven Java Developer. 
+             I am currently focusing my efforts on full stack java based applications. 
+          I always learn as much as I can because seeing my skills grow is magical.   
+          I live in Des Moines, Washington with my wife. I love reading, hiking and being outdoors. 
+              I am always experimenting in the kitchen with new, tasty ingredients and dishes. 
+              </p>
+                
+          <pre></pre> Thank you
+          <pre></pre>
+          - Berhe
+          
+    </div>
+    <div class="main">
     
-    <div class="form-group">
-
+  
+  
+  
+      
+      <div style="width:100% ;height: 1000px;overflow: scroll;"> 
        
-        <input type="hidden" class="form-control" id="patientId" 
-               [(ngModel)]="patient.userId" name="patientId" placeholder="patientId">
-        
-              
-               <label> FirstName</label>
-               <input type="text" class="form-control" id="patientFirstName" 
-                       [(ngModel)]="patient.patientFirstName" name="patientFirstName" 
-                       placeholder="patientFirstName"
-                       required
-                       #firstName="ngModel"
-                        minlength="2"
-                        pattern="^[a-zA-Z]+"
-                       >
-                       <span *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
-                       class="alert">
-                   
-                     <span *ngIf="firstName.errors?.['required']">
-                       FirstName is required.
-                     </span>
-                     <span *ngIf="firstName.errors?.['minlength']">
-                       FirstName must be at least 2 characters long.
-                     </span>
-                   <span *ngIf="firstName.errors?.['pattern']">
-                     FirstName must be only characters.
-                   </span>
-                       </span>  
-                      
-                       <label> LastName</label>
-                       <input type="text" class="form-control" id="patientLastName" 
-                               [(ngModel)]="patient.patientLastName" name="patientLastName"
-                                placeholder="patientLastName"
-                                #lastName="ngModel"
-               required
-               minlength="2"
-               pattern="^[a-zA-Z]+"
-               >
-               <span *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
-               class="alert">
-           
-             <span *ngIf="lastName.errors?.['required']">
-               lastName is required.
-             </span>
-             <span *ngIf="lastName.errors?.['minlength']">
-               lastName must be at least 2 characters long.
-             </span>
-           <span *ngIf="lastName.errors?.['pattern']">
-             lastName must be only characters.
-           </span>
-               </span>  
-                      
-                      
-                               <label> Age</label>
-                               <input type="number" class="form-control" id="age" 
-                                       [(ngModel)]="patient.age" name="age" 
-                                       placeholder="age"
-                                       #age="ngModel"
-                                       required
-        
-                                       pattern="^[0-9]+"
-                                       >
-                                       <span *ngIf="age.invalid && (age.dirty || age.touched)"
-                                       class="alert">
-                                   
-                                     <span *ngIf="age.errors?.['required']">
-                                       age is required.
-                                     </span>
-                                    
-                                   <span *ngIf="age.errors?.['pattern']">
-                                     age must not be a negative number.
-                                   </span>
-                                       </span>  
-                                    
-         <label> Email </label>
-        <input type="text" class="form-control" id="email" 
-                [(ngModel)]="patient.email" name="email" 
-                placeholder="email"
-                #email="ngModel"
-                   required
-                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                   >
-                   <span *ngIf="email.invalid && (email.dirty || email.touched)"
-                   class="alert">
-               
-                 <span *ngIf="email.errors?.['required']">
-                   email is required.
-                 </span>
-                
-               <span *ngIf="email.errors?.['pattern']">
-                 email must be valid.
-               </span>
-                   </span>  
+  
+  
+  
+  
+          
 
-                <label>Date </label>
-                <input type="date" class="form-control" id="appointmentDate" 
-                        [(ngModel)]="patient.appointment[0].appointmentDate" name="appointmentDate"
-                         placeholder="appointmentDate"
-                         #date="ngModel"
-                   required
-                 min="2022-10-18"
-                   >
-                   <span *ngIf="date.invalid && (date.dirty || date.touched)"
-                   class="alert">
-               
-                 <span *ngIf="date.errors?.['required']">
-                   appointmentDate is required.
-                 </span>
-                
-               <span *ngIf="date.errors?.['min']">
-                 appointmentDate must not be before current time.
-               </span>
-                   </span>  
-                       {{c | date:'shortDate'}}    
-               <label>Service Center </label>
-               <select id ="medicalCenter"  #medicalCenter="ngModel" required
-                name="medicalCenter" [(ngModel)]="patient.appointment[0].medicalCenter" 
-                class="form-select" aria-label="">      
-                <option  *ngFor="let medicalCenter of medicalCenters"   
-                 ngValue="{{medicalCenter.medicalCenterName}}">
-                 {{medicalCenter.medicalCenterName}}</option> 
-              </select>
-              <span *ngIf="medicalCenter.invalid && (medicalCenter.dirty || medicalCenter.touched)"
-                   class="alert">
-               
-                 <span *ngIf="medicalCenter.errors?.['required']">
-                   medicalCenterName is required where your appt takes place.
-                 </span>
-              </span>
-        
-            </div>
+<div class="col-md-6 offset-md-3">
+  <h3>Make Appointment</h3>
+  <form (ngSubmit)="onSubmit()" name="myform">
+  
+  <div class="form-group">
 
-        <button type="submit" class="btn btn-success" *ngIf="firstName.errors || lastName.errors || email.errors || medicalCenter.errors" disabled> Add</button>
-        <button type="submit" class="btn btn-success" *ngIf="!firstName.errors && !lastName.errors && !email.errors && !medicalCenter.errors"> Add</button>
      
+      <input type="hidden" class="form-control" id="patientId" 
+             [(ngModel)]="patient.userId" name="patientId" placeholder="patientId">
+      
+            
+             <label> FirstName</label>
+             <input type="text" class="form-control" id="patientFirstName" 
+                     [(ngModel)]="patient.patientFirstName" name="patientFirstName" 
+                     placeholder="patientFirstName"
+                     required
+                     #firstName="ngModel"
+                      minlength="2"
+                      pattern="^[a-zA-Z]+"
+                     >
+                     <span *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                     class="alert">
+                 
+                   <span *ngIf="firstName.errors?.['required']">
+                     FirstName is required.
+                   </span>
+                   <span *ngIf="firstName.errors?.['minlength']">
+                     FirstName must be at least 2 characters long.
+                   </span>
+                 <span *ngIf="firstName.errors?.['pattern']">
+                   FirstName must be only characters.
+                 </span>
+                     </span>  
+                    
+                     <label> LastName</label>
+                     <input type="text" class="form-control" id="patientLastName" 
+                             [(ngModel)]="patient.patientLastName" name="patientLastName"
+                              placeholder="patientLastName"
+                              #lastName="ngModel"
+             required
+             minlength="2"
+             pattern="^[a-zA-Z]+"
+             >
+             <span *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+             class="alert">
+         
+           <span *ngIf="lastName.errors?.['required']">
+             lastName is required.
+           </span>
+           <span *ngIf="lastName.errors?.['minlength']">
+             lastName must be at least 2 characters long.
+           </span>
+         <span *ngIf="lastName.errors?.['pattern']">
+           lastName must be only characters.
+         </span>
+             </span>  
+                    
+                    
+                             <label> Age</label>
+                             <input type="number" class="form-control" id="age" 
+                                     [(ngModel)]="patient.age" name="age" 
+                                     placeholder="age"
+                                     #age="ngModel"
+                                     required
+      
+                                     pattern="^[0-9]+"
+                                     >
+                                     <span *ngIf="age.invalid && (age.dirty || age.touched)"
+                                     class="alert">
+                                 
+                                   <span *ngIf="age.errors?.['required']">
+                                     age is required.
+                                   </span>
+                                  
+                                 <span *ngIf="age.errors?.['pattern']">
+                                   age must not be a negative number.
+                                 </span>
+                                     </span>  
+                                  
+       <label> Email </label>
+      <input type="text" class="form-control" id="email" 
+              [(ngModel)]="patient.email" name="email" 
+              placeholder="email"
+              #email="ngModel"
+                 required
+               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                 >
+                 <span *ngIf="email.invalid && (email.dirty || email.touched)"
+                 class="alert">
+             
+               <span *ngIf="email.errors?.['required']">
+                 email is required.
+               </span>
+              
+             <span *ngIf="email.errors?.['pattern']">
+               email must be valid.
+             </span>
+                 </span>  
+
+              <label>Date </label>
+              <input type="date" class="form-control" id="appointmentDate" 
+                      [(ngModel)]="patient.appointment[0].appointmentDate" name="appointmentDate"
+                       placeholder="appointmentDate"
+                       #date="ngModel"
+                 required
+               min="2022-10-18"
+                 >
+                 <span *ngIf="date.invalid && (date.dirty || date.touched)"
+                 class="alert">
+             
+               <span *ngIf="date.errors?.['required']">
+                 appointmentDate is required.
+               </span>
+              
+             <span *ngIf="date.errors?.['min']">
+               appointmentDate must not be before current time.
+             </span>
+                 </span>  
+                     {{c | date:'shortDate'}}    
+             <label>Service Center </label>
+             <select id ="medicalCenter"  #medicalCenter="ngModel" required
+              name="medicalCenter" [(ngModel)]="patient.appointment[0].medicalCenter" 
+              class="form-select" aria-label="">      
+              <option  *ngFor="let medicalCenter of medicalCenters"   
+               ngValue="{{medicalCenter.medicalCenterName}}">
+               {{medicalCenter.medicalCenterName}}</option> 
+            </select>
+            <span *ngIf="medicalCenter.invalid && (medicalCenter.dirty || medicalCenter.touched)"
+                 class="alert">
+             
+               <span *ngIf="medicalCenter.errors?.['required']">
+                 medicalCenterName is required where your appt takes place.
+               </span>
+            </span>
+      
+          </div>
+
+      <button type="submit" class="btn btn-success" *ngIf="firstName.errors || lastName.errors || email.errors || medicalCenter.errors" disabled> Add</button>
+      <button type="submit" class="btn btn-success" *ngIf="!firstName.errors && !lastName.errors && !email.errors && !medicalCenter.errors"> Add</button>
+   
 
 </form>
+  </div>
+  
+  
+  
+  
+  
+        
+      
+        </div>
     </div>
+  </div>
+  
+  <div>
+  <div >
+    <h2>&copy; Berhe Amare 2022</h2>
+    <div class="address">
+      <p>Personal Website: <a href="https://www.berhewebsite.com " title="berhe's website">www.berhewebsite.com</a>
+      </p>
+  <address> Email: <a href="mailto:addberhe2@gmail.com">addberhe2@gmail.com </a> </address>
+  <address>GitHub Link: <a href="https://github.com/berheA/SBA_CART_SYSTEM_Front_End.git"> GitHub Link </a> </address>
+  </div>
+  </div>
+  </div>
+  </body>
+  </html>
+
+
+
+
+
+
 

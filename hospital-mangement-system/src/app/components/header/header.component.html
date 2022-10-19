@@ -1,6 +1,28 @@
-<h1>header works!</h1>
 
-
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <title>Berhe's Home Page</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <link href='https://fonts.googleapis.com/css?family=Sumana' rel='stylesheet'>
+ 
+ <style>
+ body, p,table {
+     font-family: 'Sumana';font-size: 18px;
+ }
+ 
+ img {
+     width: 100%;
+ }
+ 
+ </style>
+     <!-- CSS only -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+ 
+ </head>
+ <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
@@ -45,11 +67,7 @@
             > Make Appointment </a>
           </li>
           
-          <!-- <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/appointments"
-            *ngIf="userService.roleMatch(['User']) || userService.roleMatch(['Receptionist'])"
-            > Appointments </a>
-          </li> -->
+     
 
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/treatments"
@@ -73,3 +91,5 @@
     </div>
   </nav> 
 
+ </body>
+ </html>
